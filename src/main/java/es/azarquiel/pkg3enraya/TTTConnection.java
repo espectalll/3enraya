@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.azarquiel.pkg3enraya;
 
 import java.io.BufferedReader;
@@ -13,10 +8,6 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author diurno
- */
 public class TTTConnection implements Runnable
 {
 
@@ -66,12 +57,12 @@ public class TTTConnection implements Runnable
 		recibido = fentrada.readLine();
 		if (recibido != null)
 		{
-		    // Aqui hago las comprobaciones de lo que recibo y envio al UI datos
-		    // aui.ponXaquijajaxDsaludos;ç
-		    if (false)
-		    {
-			break;
-		    }
+		    // Data is sent to the UI
+		    try {
+                        aui.handleEventReceived();
+                    } catch (Error e) {
+                        break;
+                    }
 		}
 	    }
 	    catch (IOException ex)
